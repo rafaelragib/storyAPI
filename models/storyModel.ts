@@ -12,6 +12,5 @@ const storySchema=new mongoose.Schema({
         required:true
     }
 
-    }
-)
+    });
 export const story=mongoose.model('stories',storySchema);
