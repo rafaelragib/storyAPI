@@ -24,5 +24,31 @@ export const storyController = (story:any) =>
        
     }
 
-    return {getStory}
+    async function getStoryById(req:any,res:any) {
+       
+        try
+        {
+            const id=req.params.id;
+            const stories= await story.find({'_id':id});
+            if(stories.length<=0){
+                res.status(404);
+                return res.send("not found");
+            }
+            else{
+                res.status(200);
+                return res.send(stories);
+            }
+            
+        }
+        catch(error)
+        {
+            res.status(500);
+            console.log(error);
+            return res.send(error);
+        }
+       
+    }
+
+
+    return {getStory,getStoryById}
 }
