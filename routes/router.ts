@@ -15,5 +15,7 @@ router.get('/',(req,res)=>
 router.get('/story',stories.getStory);
 router.get('/story/:id',stories.getStoryById);
 router.post('/story',stories.createStory);
+router.delete('/story/:id',stories.deleteStory);
+
 
  
