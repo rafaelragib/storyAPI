@@ -1,8 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import {router} from './routes/router';
-//const router= require('./routes/router')
-
 require('dotenv').config();
 
 const app = express();
