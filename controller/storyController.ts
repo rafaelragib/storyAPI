@@ -3,7 +3,6 @@ export const storyController = (story: any) => {
     async function getStory(req: any, res: any) {
 
         try {
-
             const stories = await story.find({});
             const storyJSON = stories.map((ele: any) => {
                 ele = ele.toJSON();
@@ -19,7 +18,6 @@ export const storyController = (story: any) => {
             console.log(error);
             return res.send(error);
         }
-
     }
 
     async function getStoryById(req: any, res: any) {
@@ -38,16 +36,12 @@ export const storyController = (story: any) => {
             }
             res.status(400);
             return res.send("ID is not 25 hex character");
-
-
-
         }
         catch (error) {
             res.status(500);
             console.log(error);
             return res.send(error);
         }
-
     }
 
     async function createStory(req: any, res: any) {
@@ -67,7 +61,6 @@ export const storyController = (story: any) => {
             res.status(400);
             return res.send("Bad Request");
         }
-
     }
 
     async function deleteStory(req: any, res: any) {
@@ -86,7 +79,6 @@ export const storyController = (story: any) => {
             }
             res.status(400);
             return res.send("ID is not 25 hex character");
-
         }
         catch (error) {
             res.status(500);
@@ -110,23 +102,16 @@ export const storyController = (story: any) => {
                             res.status(200);
                             res.send("Updated");
                         }
-
                     }
-
                     console.log("title and body must be included");
                     res.status(400);
-                    return res.send("error");
-
-
+                    return res.send("title and body must be included");
                 }
-
                 res.status(404);
                 return res.send("No story");
-
             }
             res.status(400);
             return res.send("ID is not 25 hex character");
-
         }
         catch (error) {
             res.status(500);
@@ -134,7 +119,5 @@ export const storyController = (story: any) => {
             return res.send(error);
         }
     }
-
-
     return { getStory, getStoryById, createStory, deleteStory, updateStory }
 }
